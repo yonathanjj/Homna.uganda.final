@@ -1,43 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Commitment</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Commitment | Homna Ltd</title>
+
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-        font-family: Arial, sans-serif;
-        background-color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f4ff;
+      color: #333;
+      line-height: 1.6;
     }
-    .content {
-        width: 60%;
-        text-align: center;
+
+    header, .footer {
+      width: 100%;
     }
+
+    main {
+      max-width: 800px;
+      margin: 120px auto 80px auto;
+      padding: 30px;
+      background: #fff;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    main:hover {
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+    }
+
     h1 {
-        margin-bottom: 20px;
+      font-size: 2.5rem;
+      margin-bottom: 25px;
+      text-align: center;
+      color: #5d3b95;
     }
+
     p {
-        line-height: 1.6;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      text-align: justify;
+    }
+
+    .highlight {
+      color: #7a4bc0;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        margin: 80px 15px;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
+
 <body>
-<div class="content">
-  <h1>Our Commitment</h1>
-  <p>
-    At our company, we are deeply committed to delivering excellence in everything we do. Our mission is to provide our customers with the highest quality products and services, ensuring their satisfaction and trust. We believe in transparency, integrity, and innovation as the core values that drive our business forward.
-  </p>
-  <p>
-    We are dedicated to creating a positive impact on the communities we serve. Through sustainable practices and ethical decision-making, we strive to contribute to a better future for all. Our team works tirelessly to ensure that every interaction with our brand is meaningful and rewarding.
-  </p>
-  <p>
-    Your trust is our greatest asset, and we are committed to earning it every day. Thank you for choosing us as your partner in this journey.
-  </p>
-</div>
+
+  <!-- Dynamic Navbar Load -->
+  <header></header>
+
+  <!-- Main Content -->
+  <main>
+    <h1>Our Commitment</h1>
+    <p>
+      At <span class="highlight">Homna Ltd</span>, our journey is built on a foundation of passion and precision. We are driven by a mission to deliver exceptional products and services that go beyond expectations. Our commitment is not just a promise — it's a practice we live by every day.
+    </p>
+    <p>
+      We believe that success is measured by the positive impact we create. From the smallest project to the largest initiative, we focus on <span class="highlight">quality, accountability, and growth</span>. Our transparent processes and dedication to innovation ensure we remain a company you can trust.
+    </p>
+    <p>
+      Sustainability is not an option — it's a responsibility. We actively pursue environmentally conscious solutions and partner with communities to foster a better tomorrow.
+    </p>
+    <p>
+      Our team is the heart of everything we do. We value each member's unique skills and perspectives, and we work collaboratively to bring meaningful ideas to life.
+    </p>
+    <p>
+      As we grow, we continue to invest in technology, creativity, and client relationships. Your confidence in Homna Ltd drives us forward — and we are honored to have you with us on this journey.
+    </p>
+    <p>
+      <strong>Let’s build the future — together.</strong>
+    </p>
+  </main>
+
+  <!-- Dynamic Footer Load -->
+  <footer class="footer"></footer>
+
+  <!-- Component Loader -->
+  <script src="assets/js/components.js"></script>
 </body>
 </html>

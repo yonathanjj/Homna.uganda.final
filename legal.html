@@ -1,46 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legal Information</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .content {
-            width: 60%;
-            text-align: center;
-        }
-        h1 {
-            margin-bottom: 20px;
-        }
-        p {
-            line-height: 1.6;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Legal Information | Homna Ltd</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f4ff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header, .footer {
+      width: 100%;
+    }
+
+    main {
+      max-width: 850px;
+      margin: 120px auto 80px auto;
+      padding: 30px;
+      background: #fff;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+    }
+
+    h1 {
+      font-size: 2.3rem;
+      margin-bottom: 25px;
+      text-align: center;
+      color: #5d3b95;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+      text-align: justify;
+    }
+
+    strong {
+      color: #7a4bc0;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        margin: 80px 15px;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 1.9rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div class="content">
+
+  <!-- Dynamic Nav -->
+  <header></header>
+
+  <!-- Main Content -->
+  <main>
     <h1>Legal Information</h1>
     <p>
-        Welcome to our Legal Information page. Here, you will find details about the terms and conditions governing your use of our website and services. By accessing our platform, you agree to comply with these terms.
+      Welcome to the Legal Information page of <strong>Homna Ltd</strong>. By accessing or using our website, you agree to comply with the terms and conditions outlined below. These terms apply to all visitors, users, and others who access or use the service.
     </p>
     <p>
-        All content on this website, including text, images, and logos, is protected by intellectual property laws. Unauthorized use or reproduction of this material is strictly prohibited and may result in legal action.
+      All content available on this website — including text, graphics, logos, images, and other materials — is the property of Homna Ltd and protected by applicable copyright and intellectual property laws. Any unauthorized use, reproduction, or distribution of content is strictly prohibited and may lead to legal action.
     </p>
     <p>
-        We are not liable for any damages or losses resulting from your use of our website or services. This includes, but is not limited to, indirect, incidental, or consequential damages.
+      Homna Ltd is not responsible for any direct or indirect damages that may occur from the use or inability to use the website or services. This includes, but is not limited to, incidental, consequential, or punitive damages, even if we have been advised of the possibility of such damages.
     </p>
     <p>
-        If you have any questions about our legal policies, please contact us at legal@example.com. We are here to assist you and ensure a transparent and fair experience for all users.
+      Our website may contain links to third-party websites or services that are not owned or controlled by Homna Ltd. We assume no responsibility for the content or practices of these third-party sites.
     </p>
-</div>
+    <p>
+      If you have questions regarding our legal policies or require further information, please contact us at <strong>legal@homnaltd.com</strong>. We are committed to maintaining transparency and trust with all our users.
+    </p>
+  </main>
+
+  <!-- Dynamic Footer -->
+  <footer class="footer"></footer>
+
+  <!-- Component Script -->
+  <script src="assets/js/components.js"></script>
+
 </body>
 </html>

@@ -1,46 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Suppliers</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Suppliers | Homna Ltd</title>
+
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-        font-family: Arial, sans-serif;
-        background-color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f4ff;
+      color: #333;
+      line-height: 1.6;
     }
-    .content {
-        width: 60%;
-        text-align: center;
+
+    header, .footer {
+      width: 100%;
     }
+
+    main {
+      max-width: 850px;
+      margin: 120px auto 80px auto;
+      padding: 30px;
+      background: #fff;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+    }
+
     h1 {
-        margin-bottom: 20px;
+      font-size: 2.3rem;
+      margin-bottom: 25px;
+      text-align: center;
+      color: #5d3b95;
     }
+
     p {
-        line-height: 1.6;
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+      text-align: justify;
+    }
+
+    strong {
+      color: #7a4bc0;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        margin: 80px 15px;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 1.9rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
+
 <body>
-<div class="content">
-  <h1>Suppliers</h1>
-  <p>
-    We are proud to collaborate with a network of trusted suppliers who share our commitment to quality and sustainability. Our suppliers are carefully selected based on their ability to meet our high standards and deliver exceptional products.
-  </p>
-  <p>
-    We prioritize partnerships with suppliers who adhere to ethical practices and environmental responsibility. By working together, we aim to create a positive impact on the industry and the planet.
-  </p>
-  <p>
-    If you are interested in becoming a supplier, please contact us at suppliers@example.com. We are always looking for new partners who align with our values and vision.
-  </p>
-  <p>
-    Thank you to all our suppliers for their dedication and support. Together, we can achieve great things.
-  </p>
-</div>
+
+  <!-- Optional Header -->
+  <header></header>
+
+  <!-- Main Content -->
+  <main>
+    <h1>Suppliers</h1>
+    <p>
+      At <strong>Homna Ltd</strong>, we take pride in collaborating with a network of trusted suppliers who share our commitment to excellence, integrity, and sustainability. These partnerships form the backbone of our ability to deliver quality-driven solutions to our clients.
+    </p>
+    <p>
+      Our suppliers are carefully vetted for their adherence to ethical business practices, environmental responsibility, and capacity to consistently meet our high standards. We believe in growing together — creating value not just for our clients, but also for the communities we operate in.
+    </p>
+    <p>
+      If you're a supplier interested in partnering with us, we’d love to hear from you. Please reach out to <strong>suppliers@homnaltd.com</strong> with your company details, offerings, and how you align with our values.
+    </p>
+    <p>
+      Thank you to all our current partners for your ongoing support and dedication. Together, we’re shaping a better, more sustainable future.
+    </p>
+  </main>
+
+  <!-- Optional Footer -->
+  <footer class="footer"></footer>
+
+  <!-- Component Script -->
+  <script src="assets/js/components.js"></script>
+
 </body>
 </html>

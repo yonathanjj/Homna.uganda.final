@@ -187,114 +187,165 @@ body {
     min-width: 300px;
 }
 
-.values-image img {
+.values-image video {
     width: 100%;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    display: block;
 }
 
 
-/* Team Section */
+/* Team Section - Optimized for Mobile */
 .team-section {
-    padding: 100px 0;
-    background-color: var(--bg-light);
+    padding: 60px 0;
+    background-color: var(--light-bg);
+    width: 100%;
 }
 
 .section-header-container {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .section-header {
-    font-size: 2.5rem;
-    color: var(--text-dark);
-    margin-bottom: 15px;
+    font-size: 2rem;
+    color: var(--dark-bg);
+    margin-bottom: 12px;
     text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .header-divider {
-    width: 80px;
-    height: 4px;
+    width: 50px;
+    height: 3px;
     background-color: var(--primary-color);
     margin: 0 auto;
 }
 
 .team-container {
     width: 90%;
-    max-width: none;
     margin: 0 auto;
-    padding: 0 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
 }
 
 .team-member {
     background-color: var(--white);
-    border-radius: var(--border-radius);
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: var(--box-shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 410px;
+    display: flex;
+    flex-direction: column;
 }
 
 .team-member:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.member-image {
-    height: 300px;
-    overflow: hidden;
-}
-
-.member-image img {
+.team-member img {
     width: 100%;
-    height: 100%;
+    height: 260px;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    object-position: center top;
+    transition: transform 0.4s ease;
 }
 
-.team-member:hover .member-image img {
-    transform: scale(1.05);
+.team-member:hover img {
+    transform: scale(1.03);
 }
 
-.member-info {
-    padding: 25px;
+.content-box {
+    padding: 18px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-.member-info h3 {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
+.content-box h3 {
+    font-size: 1.25rem;
+    margin-bottom: 6px;
     color: var(--text-dark);
 }
 
-.member-info .position {
+.content-box p {
     color: var(--primary-color);
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
 }
 
-.member-info .bio {
-    color: var(--text-light);
-    margin-bottom: 15px;
-    font-size: 0.95rem;
+.linkedin-icon {
+    margin-top: auto;
+    align-self: flex-start;
+    display: inline-flex;
+    padding: 7px;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+    transition: all 0.2s ease;
 }
 
-.linkedin-btn {
-    display: inline-block;
-    padding: 8px 20px;
-    background-color: var(--primary-color);
-    color: var(--white);
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: 500;
-    transition: background-color 0.3s ease;
+.linkedin-icon:hover {
+    background-color: #e1f0fa;
+    transform: scale(1.1);
 }
 
-.linkedin-btn:hover {
-    background-color: var(--primary-dark);
+.linkedin-icon svg {
+    width: 22px;
+    height: 22px;
 }
 
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .team-section {
+        padding: 50px 0;
+    }
+
+    .team-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        width: 85%;
+    }
+
+    .team-member {
+        height: auto;
+        min-height: 380px;
+        max-height: none;
+    }
+
+    .team-member img {
+        height: 220px;
+        min-height: 220px;
+    }
+
+    .content-box {
+        padding: 15px;
+    }
+
+    .section-header {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-member {
+        min-height: 350px;
+    }
+
+    .team-member img {
+        height: 200px;
+    }
+
+    .content-box h3 {
+        font-size: 1.2rem;
+    }
+}
 
 /* Responsive Styles */
 @media (max-width: 992px) {

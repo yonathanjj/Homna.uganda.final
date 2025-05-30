@@ -1,53 +1,34 @@
 // Sample project data (7 projects)
 const projects = [
   {
-    title: "Singapore Bright",
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-    image: "assets/image/p1.png",
-    gallery: ["assets/image/1.jpeg", "assets/image/2.jpeg", "assets/image/3.jpeg", "assets/image/4.jpeg"],
-    solutions: ["water proofing", "air resistance 4/7", "selling seal 4kg"],
-  },
-  {
-    title: "Project 2",
-    description: "Description for Project 2.",
+    title: "Amahoro National Stadium",
     image: "assets/image/p2.png",
     gallery: ["assets/image/2.jpeg", "assets/image/3.jpeg", "assets/image/4.jpeg", "assets/image/1.jpeg"],
     solutions: ["solution A", "solution B", "solution C"],
   },
   {
-    title: "Project 3",
-    description: "Description for Project 3.",
+    title: "BioNTech",
     image: "assets/image/p3.png",
     gallery: ["assets/image/3.jpeg", "assets/image/4.jpeg", "assets/image/1.jpeg", "assets/image/2.jpeg"],
     solutions: ["solution D", "solution E", "solution F"],
   },
   {
-    title: "Project 4",
-    description: "Description for Project 4.",
+    title: "RICA - Rwanda Institute for Conservation Agriculture",
     image: "assets/image/p4.png",
     gallery: ["assets/image/4.jpeg", "assets/image/1.jpeg", "assets/image/2.jpeg", "assets/image/3.jpeg"],
     solutions: ["solution G", "solution H", "solution I"],
   },
   {
-    title: "Project 5",
-    description: "Description for Project 5.",
+    title: "Inyange Industries - Powder Milk Plant",
     image: "assets/image/p5.png",
     gallery: ["assets/image/5.jpeg", "assets/image/1.jpeg", "assets/image/2.jpeg", "assets/image/3.jpeg"],
     solutions: ["solution J", "solution K", "solution L"],
   },
   {
-    title: "Project 6",
-    description: "Description for Project 6.",
+    title: "Bugesera International Airport",
     image: "assets/image/p6.png",
     gallery: ["assets/image/6.jpeg", "assets/image/1.jpeg", "assets/image/2.jpeg", "assets/image/3.jpeg"],
     solutions: ["solution M", "solution N", "solution O"],
-  },
-  {
-    title: "Project 7",
-    description: "Description for Project 7.",
-    image: "assets/image/7.jpeg",
-    gallery: ["assets/image/7.jpeg", "assets/image/1.jpeg", "assets/image/2.jpeg", "assets/image/3.jpeg"],
-    solutions: ["solution P", "solution Q", "solution R"],
   },
 ];
 
