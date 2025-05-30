@@ -1,0 +1,497 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f9;
+}
+
+/* Banner Slider */
+.banner-slider {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    margin-bottom: 50px;
+    margin-top:3rem;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    background-size: cover;
+    background-position: center;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide-content {
+    position: absolute;
+    bottom: 80px;
+    right: 80px;
+    background: rgba(190, 6, 6, 0.9); /* Updated to BE0606 */
+    color: white;
+    padding: 30px;
+    border-radius: 5px;
+    max-width: 400px;
+}
+
+.slide-content h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.slide-content p {
+    margin-bottom: 20px;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: white;
+    color: #BE0606; /* Updated to BE0606 */
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+    background: #f0f0f0;
+    transform: translateY(-3px);
+}
+
+/* Main Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Section Header */
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    color: #BE0606; /* Updated to BE0606 */
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.section-header p {
+    color: #666;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Partners Grid */
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.partner-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.partner-card:hover {
+    transform: translateY(-5px);
+}
+
+.partner-logo {
+    height: 100px;
+    margin-bottom: 20px;
+    object-fit: contain;
+}
+
+.partner-card h3 {
+    color: #BE0606; /* Updated to BE0606 */
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.partner-description {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.action-btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.solutions-btn {
+    background: #BE0606; /* Updated to BE0606 */
+    color: white;
+}
+
+.products-btn {
+    background: white;
+    color: #BE0606; /* Updated to BE0606 */
+    border: 1px solid #BE0606; /* Updated to BE0606 */
+}
+
+.action-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.modal-content {
+    background: white;
+    margin: 50px auto;
+    max-width: 900px;
+    width: 90%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-header {
+    padding: 20px;
+    background: #BE0606; /* Updated to BE0606 */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+/* Solutions Modal */
+.solutions-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.solution-item {
+    padding: 20px;
+    background: #f8f9ff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-left: 4px solid #BE0606; /* Updated to BE0606 */
+}
+
+.solution-item:hover {
+    background: #e6e9ff;
+    transform: translateX(5px);
+}
+
+.solution-item h4 {
+    color: #BE0606; /* Updated to BE0606 */
+    margin-bottom: 10px;
+}
+
+.solution-item p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Products Modal */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.product-image {
+    height: 150px;
+    background: #f8f9ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.product-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.product-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.product-info h5 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Solution Products Modal */
+.solution-products-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.back-to-solutions {
+    color: #BE0606; /* Updated to BE0606 */
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Product Detail Modal */
+.product-detail {
+    display: flex;
+    gap: 30px;
+}
+
+.product-gallery {
+    flex: 1;
+}
+
+.product-main-image {
+    width: 100%;
+    height: 300px;
+    background: #f8f9ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.product-main-image img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+.product-thumbnails {
+    display: flex;
+    gap: 10px;
+}
+
+.product-thumbnail {
+    width: 70px;
+    height: 70px;
+    background: #f8f9ff;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    overflow: hidden;
+}
+
+.product-thumbnail.active {
+    border-color: #BE0606; /* Updated to BE0606 */
+}
+
+.product-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-details {
+    flex: 1;
+}
+
+.product-details h4 {
+    color: #BE0606; /* Updated to BE0606 */
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.product-meta {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.product-description {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.product-features h5 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.product-features ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.product-features li {
+    margin-bottom: 8px;
+}
+
+.product-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.product-actions a.action-btn.secondary-btn {
+    background: #f0f0f0;
+    color: #333;
+    border: 1px solid #ddd;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+}
+.product-actions a.action-btn.secondary-btn:hover {
+    background: #e0e0e0;
+}
+.product-actions button.action-btn.secondary-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #f0f0f0;
+    color: #999;
+    border: 1px solid #ddd;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .slide-content {
+        right: 40px;
+        bottom: 40px;
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner-slider {
+        height: 400px;
+    }
+
+    .slide-content {
+        right: 20px;
+        bottom: 20px;
+        left: 20px;
+        max-width: none;
+    }
+
+    .partners-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .product-detail {
+        flex-direction: column;
+    }
+
+    .product-main-image {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-slider {
+        height: 350px;
+    }
+
+    .slide-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+}

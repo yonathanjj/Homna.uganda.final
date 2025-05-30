@@ -1,0 +1,590 @@
+<nav class="navbar">
+    <a href="index.html" class="logo">
+        <img src="assets/image/logoen.png" alt="homna Logo">
+    </a>
+
+    <div class="right-section">
+        <!-- Functional Search Bar -->
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search...">
+            <div class="search-icon">🔍</div>
+            <div class="search-results"></div>
+        </div>
+
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+
+    <div class="nav-overlay">
+        <div class="menu-container">
+            <div class="menu-content">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a><div class="underline"></div></li>
+                    <li><a href="about.html">About</a><div class="underline"></div></li>
+                    <li><a href="solutions.html">Solutions</a><div class="underline"></div></li>
+                    <li><a href="projects.html">Projects</a><div class="underline"></div></li>
+                    <li><a href="blog.html">Blog</a><div class="underline"></div></li>
+                    <li><a href="contact.html">Contact</a><div class="underline"></div></li>
+                </ul>
+                <div class="return-path">
+                    <a href="#" class="return-path-button">Return</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<style>
+/* General navbar styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8f4ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    z-index: 1000;
+    height: 100px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+/* Right section containing search and hamburger */
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Logo Styling */
+.navbar a.logo img {
+    width: 180px;
+    transition: transform 0.3s ease;
+}
+
+/* Search Container - New Style */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 250px;
+    margin-right: 15px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 20px;
+    padding-right: 45px;
+    border: 2px solid #ddd;
+    border-radius: 30px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.search-input:focus {
+    border-color: #BE0606; /* Updated to BE0606 */
+    box-shadow: 0 0 0 3px rgba(190, 6, 6, 0.2); /* Updated to BE0606 */
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-icon svg {
+    width: 20px;
+    height: 20px;
+    color: #555;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1001;
+}
+
+.search-results.active {
+    display: block;
+}
+
+.search-results a {
+    display: block;
+    padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.search-results a:hover {
+    background: #f5f5f5;
+}
+
+.search-result-item {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.search-result-item:hover {
+    background-color: #f5f5f5;
+}
+
+.search-result-link h3 {
+    margin: 0 0 5px 0;
+    color: #BE0606; /* Updated to BE0606 */
+    font-size: 1.1rem;
+}
+
+.search-preview {
+    margin: 0;
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.highlight {
+    background-color: #ffeb3b;
+    color: #000;
+    font-weight: bold;
+    padding: 0 2px;
+}
+
+.search-loading {
+    padding: 15px;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+
+.highlight {
+    background-color: #ffeb3b;
+    color: #000;
+    font-weight: bold;
+    padding: 2px 0;
+}
+
+.no-results {
+    padding: 12px 20px;
+    color: #777;
+    font-style: italic;
+}
+
+/* Full-screen Overlay Menu */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(190, 6, 6, 0.98); /* Updated to BE0606 */
+    backdrop-filter: blur(15px);
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 999;
+    overflow-y: auto;
+}
+
+.nav-overlay.active {
+    transform: translateX(0);
+}
+
+/* Menu Container Structure */
+.menu-container {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0 40px;
+}
+
+/* Menu Content */
+.menu-content {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Nav Links Styling */
+.nav-links {
+    width: 100%;
+    padding-right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-links li {
+    list-style-type: none;
+    margin: 0.9rem 0;
+    position: relative;
+}
+
+.nav-links a {
+    color: #fff;
+    font-size: 2.5rem;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s ease, transform 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    transform: translateY(-5px);
+    color: #ffcccc; /* Lighter red for hover */
+}
+
+/* Underline Divider */
+.underline {
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background-color: #ffcccc; /* Lighter red for underline */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-links li:hover .underline {
+    opacity: 1;
+}
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 1001;
+  position: relative;
+  display: block;
+}
+
+.hamburger-menu .bar {
+  width: 35px;
+  height: 3px;
+  background: #BE0606; /* Updated to BE0606 */
+  margin: 6px 0;
+  transition: all 0.3s ease;
+}
+
+/* Animated X Transformation */
+.hamburger-menu.active .bar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+  background: #fff; /* White when active */
+}
+
+.hamburger-menu.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active .bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+  background: #fff; /* White when active */
+}
+
+/* Return Path Button */
+.return-path {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.return-path-button {
+    display: inline-block;
+    padding: 15px 35px;
+    background: #f8f4ff;
+    color: #BE0606; /* Updated to BE0606 */
+    border: none;
+    border-radius: 35px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.return-path-button:hover {
+    background: #f8f4ff;
+    transform: translateY(-2px);
+    color: #BE0606; /* Updated to BE0606 */
+    box-shadow: 0 4px 12px rgba(190, 6, 6, 0.2); /* Updated to BE0606 */
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        height: 70px;
+        padding: 15px 5%;
+    }
+
+    .navbar a.logo img {
+        width: 120px;
+    }
+
+    .search-container {
+        width: 180px;
+        margin-right: 10px;
+    }
+
+    .search-input {
+        padding: 10px 15px;
+        padding-right: 40px;
+        font-size: 0.9rem;
+    }
+
+    .nav-links a {
+        font-size: 2rem;
+    }
+
+    .menu-container {
+        padding: 40px 0;
+    }
+
+    .underline {
+        width: 70%;
+    }
+
+    .hamburger-menu .bar {
+        width: 30px;
+        height: 2.5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-container {
+        width: 150px;
+    }
+
+    .search-input {
+        padding: 8px 12px;
+        padding-right: 35px;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Navbar Elements
+    const hamburger = document.querySelector('.hamburger-menu');
+    const navOverlay = document.querySelector('.nav-overlay');
+    const navLinks = document.querySelectorAll('.nav-links li');
+    const searchInput = document.querySelector('.search-input');
+    const searchResults = document.querySelector('.search-results');
+    const searchIcon = document.querySelector('.search-icon');
+
+    // Mobile Menu Toggle
+    hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        navOverlay.classList.toggle('active');
+    });
+
+    // Search Implementation
+    const pagesToSearch = [
+        'index.html',
+        'about.html',
+        'blog.html',
+        'projects.html',
+        'contact.html',
+        'solutions.html'
+    ];
+
+    let searchIndex = [];
+    let searchTimeout;
+
+    // Initialize search
+    (async function() {
+        try {
+            // Load and index all pages
+            searchIndex = await Promise.all(pagesToSearch.map(async url => {
+                try {
+                    const response = await fetch(url);
+                    const html = await response.text();
+                    const doc = new DOMParser().parseFromString(html, 'text/html');
+
+                    // Extract main content (skip nav/footer)
+                    const main = doc.querySelector('main') || doc.body;
+                    const content = main.textContent
+                        .replace(/\s+/g, ' ')
+                        .trim();
+
+                    return {
+                        url,
+                        title: doc.title || url,
+                        content: content.toLowerCase()
+                    };
+                } catch (error) {
+                    console.warn(`Skipping ${url}:`, error);
+                    return null;
+                }
+            }));
+
+            // Remove any failed pages
+            searchIndex = searchIndex.filter(page => page !== null);
+
+            // Set up search event listeners
+            searchInput.addEventListener('input', function() {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    searchPages(this.value.trim());
+                }, 300);
+            });
+
+            searchIcon.addEventListener('click', () => {
+                if (searchInput.value.trim()) {
+                    searchPages(searchInput.value.trim());
+                }
+            });
+
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    searchPages(searchInput.value.trim());
+                }
+            });
+
+        } catch (error) {
+            console.error('Search init failed:', error);
+            searchResults.innerHTML = '<div class="search-error">Search temporarily unavailable</div>';
+        }
+    })();
+
+    function searchPages(query) {
+        if (!query) {
+            searchResults.classList.remove('active');
+            return;
+        }
+
+        searchResults.innerHTML = '<div class="search-loading">Searching...</div>';
+        searchResults.classList.add('active');
+
+        setTimeout(() => {
+            const queryLower = query.toLowerCase();
+            const results = [];
+
+            searchIndex.forEach(page => {
+                const titlePos = page.title.toLowerCase().indexOf(queryLower);
+                const contentPos = page.content.indexOf(queryLower);
+
+                if (titlePos >= 0 || contentPos >= 0) {
+                    // Calculate relevance score
+                    let score = 0;
+                    if (titlePos >= 0) score += 3;
+                    if (contentPos >= 0) score += 1;
+
+                    // Count all occurrences
+                    const titleMatches = (page.title.match(new RegExp(queryLower, 'g')) || []).length;
+                    const contentMatches = (page.content.match(new RegExp(queryLower, 'g')) || []).length;
+                    score += (titleMatches * 2) + contentMatches;
+
+                    results.push({
+                        url: page.url,
+                        title: page.title,
+                        content: page.content,
+                        score: score
+                    });
+                }
+            });
+
+            // Sort by score and display
+            displayResults(
+                results.sort((a, b) => b.score - a.score),
+                queryLower
+            );
+        }, 50);
+    }
+
+    function displayResults(results, query) {
+        searchResults.innerHTML = '';
+
+        if (results.length === 0) {
+            searchResults.innerHTML = `
+                <div class="no-results">
+                    No results found for "${query}"
+                </div>
+            `;
+            return;
+        }
+
+        results.slice(0, 5).forEach(result => {
+            const resultItem = document.createElement('a');
+            resultItem.href = result.url;
+            resultItem.className = 'search-result';
+
+            // Highlight title matches
+            const title = result.title.replace(
+                new RegExp(query, 'gi'),
+                match => `<span class="highlight">${match}</span>`
+            );
+
+            // Find best content snippet
+            const matchPos = result.content.indexOf(query);
+            let preview = '';
+            if (matchPos >= 0) {
+                const start = Math.max(0, matchPos - 50);
+                const end = Math.min(result.content.length, matchPos + query.length + 50);
+                preview = result.content.substring(start, end);
+                if (start > 0) preview = '...' + preview;
+                if (end < result.content.length) preview += '...';
+
+                preview = preview.replace(
+                    new RegExp(query, 'gi'),
+                    match => `<span class="highlight">${match}</span>`
+                );
+            }
+
+            resultItem.innerHTML = `
+                <h3>${title}</h3>
+                ${preview ? `<p>${preview}</p>` : ''}
+            `;
+
+            searchResults.appendChild(resultItem);
+        });
+    }
+
+    // Close search when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.search-container') &&
+            !e.target.closest('.search-results')) {
+            searchResults.classList.remove('active');
+        }
+    });
+
+    // Close with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            searchResults.classList.remove('active');
+            searchInput.blur();
+        }
+    });
+});
+</script>

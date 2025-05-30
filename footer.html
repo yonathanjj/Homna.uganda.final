@@ -1,0 +1,371 @@
+<div class="footer">
+    <div class="footer-content">
+        <div class="footer-text-container">
+            <p class="animated-text">We lead the way in delivering innovative construction solutions that set new standards in quality, sustainability, and performance.</p>
+            <a href="index.html">
+                <img src="assets/image/logoen.png" alt="HOMNA Logo" class="footer-logo">
+            </a>
+        </div>
+
+        <div class="footer-links">
+            <div class="footer-links-col">
+                <a href="about.html" class="hover-grow">About</a>
+                <a href="solutions.html" class="hover-grow">Products</a>
+                <a href="projects.html" class="hover-grow">Projects</a>
+            </div>
+            <div class="footer-links-col">
+                <a href="blog.html" class="hover-grow">News</a>
+                <a href="contact.html" class="hover-grow">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-line glow-line"></div>
+
+    <div class="footer-bottom">
+    <div class="footer-bottom-links">
+        <button onclick="window.location.href='commitment.html'" class="link-underline">Commitment</button>
+        <button onclick="window.location.href='privacy.html'" class="link-underline">Privacy</button>
+        <button onclick="window.location.href='legal.html'" class="link-underline">Legal</button>
+        <button onclick="window.location.href='suppliers.html'" class="link-underline">Suppliers</button>
+        <button onclick="window.location.href='cookie.html'" class="link-underline">Cookies</button>
+    </div>
+</div>
+
+    <div class="footer-line glow-line"></div>
+
+    <div class="footer-locations">
+        <div class="location-container">
+            <a href="https://maps.google.com/maps?q=mainoffice+remera+1+kk+st.+4+mnamn" target="_blank" class="location-link">📍 Head Office: KG 125 St, Rukiri II, Remera, Gasabo</a>
+            <a href="https://maps.google.com/maps?q=new+york" target="_blank" class="location-link">📍 Showroom II: KG 11 St, Rwahama, Remera</a>
+            <a href="https://maps.google.com/maps?q=london" target="_blank" class="location-link">📍 Showroom I: KG 40 St, Kimironko, Gasabo</a>
+        </div>
+    </div>
+
+    <div class="footer-social">
+        <div class="logo-copyright">
+            <p class="logo-glow">@HOMNA 2025</p>
+        </div>
+        <div class="social-icons">
+            <a href="#" class="social-icon hover-float">
+                <img src="assets/image/Linkedin.png" alt="LinkedIn">
+            </a>
+            <a href="#" class="social-icon hover-float">
+                <img src="assets/image/X.png" alt="X">
+            </a>
+            <a href="#" class="social-icon hover-float">
+                <img src="assets/image/Insta.png" alt="Instagram">
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+.footer {
+    background: #BE0606; /* Updated to BE0606 */
+    color: white;
+    padding: 35px 0 20px;
+    position: relative;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+}
+
+.footer-content {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    padding-bottom: 25px;
+}
+
+.footer-text-container {
+    width: 45%;
+    text-align: left;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.animated-text {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    text-align: left;
+    margin: 0;
+    transition: transform 0.3s ease;
+    color: white;
+}
+
+.animated-text:hover {
+    transform: translateY(-3px);
+    color: #ffcccc; /* Lighter red for hover */
+}
+
+.footer-logo {
+    width: 180px;
+    height: auto;
+    filter: brightness(0) invert(1);
+    transition: all 0.3s ease;
+    opacity: 0.9;
+    display: block;
+    margin-left: 0;
+    margin-top: 1rem;
+}
+
+.footer-logo:hover {
+    transform: scale(1.05);
+    opacity: 1;
+    filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(255,255,255,0.5));
+}
+
+.footer-links {
+    display: flex;
+    gap: 60px;
+    font-size: 1.2rem;
+}
+
+.footer-links-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links-col a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-links-col a:hover {
+    color: #ffcccc; /* Lighter red for hover */
+    transform: translateX(5px);
+}
+
+.footer-bottom {
+    width: 90%;
+    margin: 15px auto;
+    color: #ffffff;
+    text-align: center;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.footer-bottom-links a,
+.footer-bottom-links button {
+    color: white;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    display: inline-block;
+}
+
+.footer-bottom-links a.link-underline,
+.footer-bottom-links button.link-underline {
+    padding-bottom: 3px;
+}
+
+.footer-bottom-links a.link-underline::after,
+.footer-bottom-links button.link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ffcccc; /* Lighter red for underline */
+    transition: width 0.3s ease;
+}
+
+.footer-bottom-links a.link-underline:hover::after,
+.footer-bottom-links button.link-underline:hover::after {
+    width: 100%;
+}
+
+.footer-line.glow-line {
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 204, 204, 0.6) 50%, transparent 100%); /* Lighter red gradient */
+    box-shadow: 0 0 15px rgba(255, 204, 204, 0.4); /* Lighter red glow */
+    margin: 12px auto;
+}
+
+.footer-locations {
+    width: 100%;
+    padding: 30px 0;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.location-container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.location-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.location-link:hover {
+    color: #ffcccc; /* Lighter red for hover */
+    transform: translateY(-3px);
+}
+
+.footer-social {
+    width: 90%;
+    margin: 25px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-icons {
+    display: flex;
+    gap: 25px;
+}
+
+.social-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255, 204, 204, 0.2); /* Lighter red background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: rgba(255, 204, 204, 0.4); /* Brighter red on hover */
+    transform: translateY(-5px);
+}
+
+.social-icon img {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+/* Interactive Elements */
+.hover-grow:hover {
+    transform: translateX(8px) scale(1.05);
+    color: #ffcccc; /* Lighter red for hover */
+}
+
+.link-underline {
+    position: relative;
+    padding-bottom: 3px;
+    color: white;
+}
+
+.link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ffcccc; /* Lighter red for underline */
+    transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+    width: 100%;
+}
+
+.hover-float:hover {
+    transform: translateY(-5px);
+}
+
+.logo-glow {
+    text-shadow: 0 0 15px rgba(255, 204, 204, 0.6); /* Lighter red glow */
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-text-container {
+        width: 80%;
+        margin-bottom: 30px;
+    }
+
+    .footer-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 30px 0 15px;
+    }
+
+    .footer-text-container {
+        width: 100%;
+    }
+
+    .animated-text {
+        font-size: 1.2rem;
+    }
+
+    .footer-logo {
+        width: 150px;
+    }
+
+    .footer-bottom-links {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .location-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-social {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .animated-text {
+        font-size: 1.1rem;
+    }
+
+    .footer-logo {
+        width: 120px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .social-icons {
+        gap: 15px;
+    }
+}
+</style>
+

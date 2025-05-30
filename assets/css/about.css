@@ -1,0 +1,364 @@
+/* Base Styles */
+:root {
+    --primary-color: #BE0606;
+    --primary-dark: #9A0505;
+    --text-dark: #333333;
+    --text-light: #777777;
+    --bg-light: #F9F9F9;
+    --white: #FFFFFF;
+    --black: #000000;
+    --border-radius: 8px;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7));
+}
+
+.hero-content {
+    text-align: center;
+    color: var(--white);
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-header {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.hero-divider {
+    width: 100px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 0 auto 25px;
+}
+
+.hero-description {
+    font-size: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Mission Section */
+.mission-section {
+    padding: 100px 0;
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.mission-container {
+    width: 90%;
+    max-width: none;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.mission-statement {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mission-statement h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+.mission-statement h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--white);
+}
+
+.mission-statement p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+/* Values Section */
+.values-section {
+    padding: 100px 0;
+    background-color: var(--white);
+}
+
+.values-container {
+    width: 90%;
+    max-width: none;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.values-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 50px;
+}
+
+.values-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.values-text h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.values-text h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.values-text p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: var(--text-light);
+}
+
+.values-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.values-image img {
+    width: 100%;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+
+/* Team Section */
+.team-section {
+    padding: 100px 0;
+    background-color: var(--bg-light);
+}
+
+.section-header-container {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header {
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.header-divider {
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 0 auto;
+}
+
+.team-container {
+    width: 90%;
+    max-width: none;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.team-member {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.member-image {
+    height: 300px;
+    overflow: hidden;
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.team-member:hover .member-image img {
+    transform: scale(1.05);
+}
+
+.member-info {
+    padding: 25px;
+}
+
+.member-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: var(--text-dark);
+}
+
+.member-info .position {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.member-info .bio {
+    color: var(--text-light);
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.linkedin-btn {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.linkedin-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .hero-header {
+        font-size: 2.8rem;
+    }
+
+    .hero-description {
+        font-size: 1.2rem;
+    }
+
+    .mission-statement h2 {
+        font-size: 2rem;
+    }
+
+    .mission-statement p {
+        font-size: 1.1rem;
+    }
+
+    .section-header {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-header {
+        font-size: 2.2rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .values-content {
+        flex-direction: column;
+    }
+
+    .values-text, .values-image {
+        min-width: 100%;
+    }
+
+    .team-container {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-header {
+        font-size: 1.8rem;
+    }
+
+    .mission-section, .values-section, .team-section {
+        padding: 60px 0;
+    }
+
+    .mission-statement h2 {
+        font-size: 1.6rem;
+    }
+
+    .section-header {
+        font-size: 1.6rem;
+    }
+
+    .team-container {
+        grid-template-columns: 1fr;
+    }
+}

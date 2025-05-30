@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="assets/image/Icon.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Construction Solutions Portal</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <link rel="stylesheet" href="assets/css/solutions.css">
+</head>
+
+<header></header>
+
+
+<body>
+    <!-- Banner Slider -->
+    <div class="banner-slider">
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
+            <div class="slide-content">
+                <h2>Premium Construction Solutions</h2>
+                <p>Discover our comprehensive range of products and systems for your construction needs.</p>
+                <a href="#" class="cta-btn">Explore Products</a>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
+            <div class="slide-content">
+                <h2>Innovative Waterproofing Systems</h2>
+                <p>Advanced waterproofing technologies for durable and reliable protection.</p>
+                <a href="#" class="cta-btn">View Solutions</a>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1600607688969-a5bfcd646154?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
+            <div class="slide-content">
+                <h2>Trusted Industry Partners</h2>
+                <p>Collaborating with leading manufacturers to bring you the best construction solutions.</p>
+                <a href="#" class="cta-btn">Meet Our Partners</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+            <h2>Our Trusted Partners</h2>
+            <p>We collaborate with industry leaders to provide comprehensive construction solutions</p>
+        </div>
+
+        <!-- Partners Grid -->
+<div class="partners-grid">
+    <!-- Sika Partner Card -->
+    <div class="partner-card" data-partner="sika">
+        <img src="assets/image/sika.png" alt="Sika Logo" class="partner-logo">
+        <h3>Sika</h3>
+        <p class="partner-description">World leader in construction chemicals and industrial manufacturing.</p>
+        <div class="action-buttons">
+            <button class="action-btn solutions-btn" data-partner="sika">View Solutions</button>
+            <button class="action-btn products-btn" data-partner="sika">View Products</button>
+        </div>
+    </div>
+
+
+    <!-- ACO Partner Card -->
+    <div class="partner-card" data-partner="aco">
+        <img src="assets/image/aco.png" alt="ACO Logo" class="partner-logo">
+        <h3>ACO</h3>
+        <p class="partner-description">Specialists in drainage and water management solutions.</p>
+        <div class="action-buttons">
+            <button class="action-btn solutions-btn" data-partner="aco">View Solutions</button>
+            <button class="action-btn products-btn" data-partner="aco">View Products</button>
+        </div>
+    </div>
+
+
+    <!-- Kingspan Partner Card -->
+    <div class="partner-card" data-partner="kingspan">  <!-- Changed from 'simba' to 'kingspan' -->
+        <img src="assets/image/king.png" alt="Kingspan Logo" class="partner-logo">
+        <h3>Kingspan</h3>
+        <p class="partner-description">Innovative building materials and construction solutions provider.</p>
+        <div class="action-buttons">
+            <button class="action-btn solutions-btn" data-partner="kingspan">View Solutions</button>  <!-- Changed -->
+            <button class="action-btn products-btn" data-partner="kingspan">View Products</button>  <!-- Changed -->
+        </div>
+    </div>
+</div>
+    </div>
+
+    <!-- Solutions Modal -->
+    <div class="modal" id="solutions-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="solutions-modal-title">Solutions</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="solutions-modal-content">
+                <!-- Content will be loaded here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Solution Products Modal -->
+    <div class="modal" id="solution-products-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="solution-products-modal-title">Solution Products</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="solution-products-modal-content">
+                <!-- Content will be loaded here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Products Modal -->
+    <div class="modal" id="products-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="products-modal-title">Products</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="products-modal-content">
+                <!-- Content will be loaded here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="product-modal-title">Product Details</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="product-modal-content">
+                <!-- Content will be loaded here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+</footer>
+
+<script src="assets/js/solutions.js"></script>
+    <script src="assets/js/components.js"></script>
+</body>
+</html>
