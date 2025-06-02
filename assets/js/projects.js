@@ -1,6 +1,12 @@
 // Sample project data (7 projects)
 const projects = [
   {
+    title: "Zaria court",
+    image: "assets/image/p1.png",
+    gallery: ["assets/image/2.jpeg", "assets/image/3.jpeg", "assets/image/4.jpeg", "assets/image/1.jpeg"],
+    solutions: ["solution A", "solution B", "solution C"],
+  },
+  {
     title: "Amahoro National Stadium",
     image: "assets/image/p2.png",
     gallery: ["assets/image/2.jpeg", "assets/image/3.jpeg", "assets/image/4.jpeg", "assets/image/1.jpeg"],

@@ -13,71 +13,83 @@
 <body>
 <!-- Popup Modal -->
 <div id="popup" class="popup">
-  <div class="popup-content">
-    <span class="close" onclick="closePopup()">&times;</span>
-    <h2 id="popup-title"></h2>
-    <img id="popup-image" src="" alt="">
-    <p id="popup-text"></p>
-  </div>
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <h2 id="popup-title"></h2>
+        <img id="popup-image" src="" alt="">
+        <p id="popup-text"></p>
+    </div>
 </div>
 
 <!-- Blog Posts Section -->
 <div class="container">
-  <h1 class="section-title">News and blogs</h1>
+    <h1 class="section-title">News and blogs</h1>
 
-  <div class="blog-grid">
-    <!-- Left Column (Text Content) -->
-    <div class="left-column">
-      <div class="blog-card center-blog-text" onclick="openPopup('Arup signs MoU with industry leaders', 'https://picsum.photos/530/520', 'Leading engineering firm Arup has announced a new partnership with major industry players to integrate ecological considerations into offshore wind farm development...')">
-        <h2 class="blog-title">Arup signs MoU with industry leaders to promote nature inclusivity</h2>
-        <p class="blog-excerpt">Leading engineering firm Arup has announced a new partnership with major industry players to integrate ecological considerations into offshore wind farm development...</p>
-        <div class="date">13th December 2024</div>
-      </div>
-    </div>
+    <div class="blog-grid">
+        <!-- Featured Blog Title/Description (Left) -->
+        <div class="left-column">
+            <div class="blog-text-content">
+                <h2 class="blog-title">A Historic Win for Homna Limited</h2>
+                <p class="blog-excerpt">We are thrilled to announce that David Irakoze, representing Homna Limited, has made history by securing 1st Place at the inaugural Sika Kenya Tiler Competition and was named the East Africa winner!</p>
+                <div class="date">13th December 2024</div>
+            </div>
+        </div>
 
-    <!-- Center Column (Main Blog) -->
-    <div class="center-column">
-      <div class="blog-card center-blog" onclick="openPopup('Main Blog Post', 'https://picsum.photos/530/520', 'Main blog post content goes here...')">
-        <div class="blog-image" style="background-image: url('https://picsum.photos/530/520')"></div>
-      </div>
-    </div>
+        <!-- Main Featured Blog (Center) -->
+        <div class="center-column">
+            <div class="blog-card center-blog" onclick="openPopup('A Historic Win for Homna Limited', 'assets/image/blog3.png', '🏆 A Historic Win for Homna Limited!<br><br>We are thrilled to announce that David Irakoze, representing Homna Limited, has made history by securing 1st Place at the inaugural Sika Kenya Tiler Competition and was named the EastAfrica winner!<br><br>After first conquering Rwanda\'s national stage, our Applicator has now triumphed regionally, proving his unmatched craftsmanship.<br><br>This win earns him a spot at the Sika Africa Innovation Week in Morocco – the next frontier for excellence.<br><br>Our Homna Limited family welcomed David home with flowers and well-deserved personal gifts, celebrating the dedication that brought him this far.<br><br>This victory reflects Homna Limited\'s commitment to nurturing world-class talent, investing in technical mastery, and celebrating excellence as one team.<br><br>Partner with a team that sets industry standards!<br><br>Contact us today to discuss your next project:<br>📞 +250 790 696 166<br>📧 info@homnaltd.com<br><br>Visit:<br>www.homnaltd.com')">
+                <div class="blog-image" style="background-image: url('assets/image/blog3.png')"></div>
+            </div>
+        </div>
 
-    <!-- Right Column (Side Blog) -->
-    <div class="right-column">
-      <div class="blog-card right-blog" onclick="openPopup('Yantai City\'s Sun Tower opens in China', 'https://picsum.photos/330/240', 'Yantai City has inaugurated its iconic Sun Tower, blending modern architecture with cultural heritage.')">
-        <div class="blog-image" style="background-image: url('https://picsum.photos/330/240')"></div>
-        <h3 class="blog-title">Yantai City's Sun Tower opens in China</h3>
-        <div class="date">12th December 2024</div>
-      </div>
+        <!-- Side Blog (Right) -->
+        <div class="right-column">
+            <div class="blog-card right-blog" onclick="openPopup('Building Smarter with Sika Fire Protection', 'assets/image/blog5.png', '🔥 How fast can fire move in a building? Learn how to build smarter with Sika fire protection.<br><br>Fire protection systems that slow the danger before it spreads.<br><br>📍 Available at Homna showrooms: Kimironko | Remera | Nyabugogo<br>📞 +250 790 696 166 | +250 791 920 749 | +250 791 920 763<br>📧 info@homnaltd.com<br>🌐 www.homnaltd.com')">
+                <div class="blog-image" style="background-image: url('assets/image/blog5.png')"></div>
+                <h3 class="blog-title">Building Smarter with Sika Fire Protection</h3>
+                <div class="date">12th December 2024</div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <!-- Latest Posts Section -->
 <section class="container">
-  <h2 class="section-title">Latest Posts</h2>
-  <div class="posts-grid">
-    <!-- Post 1 -->
-    <div class="post-card" onclick="openPopup('Blog Post Title 1', 'assets/image/2.jpeg', 'This is the content of Blog Post 1.')">
-      <div class="post-image" style="background-image: url('assets/image/2.jpeg')"></div>
-      <h3 class="post-title">Blog Post Title 1</h3>
-      <span class="post-date">March 15, 2024</span>
-    </div>
+    <h2 class="section-title">Latest Posts</h2>
+    <div class="posts-grid">
+        <!-- Post 1 -->
+        <div class="post-card" onclick="openPopup('Concrete Surgery with Sikadur®-52 LP', 'assets/image/blog1.png', '🩺 Even concrete needs surgery sometimes.<br><br>When it does, Sikadur®-52 LP is the specialist we call in.<br>- Cracks in your beams?<br>- Voids in your foundation?<br>- Structural pain in columns or slabs?<br>🛠️ This isn\'t just surface damage, it\'s a case for expert intervention.<br><br>Sikadur®-52 LP is a high-strength, low-viscosity epoxy injection resin, designed to go deep into cracks and voids and restore structural integrity from within.<br><br>Think of it as a surgeon for concrete:<br>✔️ Penetrates hairline cracks like a precision needle<br>✔️ Bonds concrete sections like sutures<br>✔️ Stops corrosion and water intrusion like a seal<br>✔️ Cures without shrinkage, and never leaves a scar<br><br>Trust the product engineered for the toughest structural repairs in hot, tropical conditions, whether it\'s a bridge, foundation, tank, or column. Homna Limited is the authorized distributor and certified applicator for it.<br><br>📍 Available at Homna showrooms: Kimironko | Remera | Nyabugogo<br>📞 +250 790 696 166 | +250 791 920 749 | +250 791 920 763<br>📧 info@homnaltd.com<br>🌐 www.homnaltd.com<br><br>Sika Kenya')">
+            <div class="post-image-container">
+                <div class="post-image" style="background-image: url('assets/image/blog1.png')"></div>
+            </div>
+            <div class="post-content">
+                <h3 class="post-title">Concrete Surgery with Sikadur®-52 LP</h3>
+                <span class="post-date">March 16, 2024</span>
+            </div>
+        </div>
 
-    <!-- Post 2 -->
-    <div class="post-card" onclick="openPopup('Blog Post Title 2', 'assets/image/1.jpeg', 'This is the content of Blog Post 2.')">
-      <div class="post-image" style="background-image: url('assets/image/1.jpeg')"></div>
-      <h3 class="post-title">Blog Post Title 2</h3>
-      <span class="post-date">March 16, 2024</span>
-    </div>
+        <!-- Post 2 -->
+        <div class="post-card" onclick="openPopup('Quality Construction Solutions Around the Corner', 'assets/image/blog4.png', '🏙️ What if quality construction solutions were just around the corner?<br><br>That\'s exactly what we\'re working toward. We keep expanding our showroom presence across Kigali to make it easier for contractors, consultants, and homeowners to access the solutions they trust, without delay.<br><br>Each location, from Kimironko to Remera to Nyabugogo, reflects our commitment to accessibility, reliability, and the kind of service that feels like home.<br><br>📍 Visit us today and experience the difference.<br>📞 +250 790 696 166<br>🌐 www.homnaltd.com<br>📧 info@homnaltd.com<br>🏢 Showrooms: Kimironko | Remera | Nyabugogo')">
+            <div class="post-image-container">
+                <div class="post-image" style="background-image: url('assets/image/blog4.png')"></div>
+            </div>
+            <div class="post-content">
+                <h3 class="post-title">Quality Construction Solutions Around the Corner</h3>
+                <span class="post-date">March 15, 2024</span>
+            </div>
+        </div>
 
-    <!-- Post 3 -->
-    <div class="post-card" onclick="openPopup('Blog Post Title 3', 'assets/image/3.jpeg', 'This is the content of Blog Post 3.This is the content of Blog Post 1This is the content of Blog Post 1This is the content of Blog Post 1This is the content of Blog Post 1This is the content of Blog Post 1This is the content of Blog Post 1This is the content of Blog Post 1This is the content of Blog Post 1This is the content of Blog Post 1This is the content of Blog Post 1This is the content of Blog Post 1This is the content of Blog Post 1This is the content of Blog Post 1')">
-      <div class="post-image" style="background-image: url('assets/image/3.jpeg')"></div>
-      <h3 class="post-title">Blog Post Title 3</h3>
-      <span class="post-date">March 17, 2024</span>
+        <!-- Post 3 -->
+        <div class="post-card" onclick="openPopup('At Homna, Every Applicator Matters', 'assets/image/blog2.png', '👷‍♂️ At Homna, every applicator matters because building right starts with being treated right.<br><br>Behind every waterproofed wall, every sealed roof, and every flawless epoxy floor... there\'s a skilled hand, and a hardworking professional we\'re proud to support.<br><br>We don\'t just work together, we grow together.<br>Because when you work with Homna, it should feel like home.<br><br>📞 +250 790 696 166 | +250 791 920 749 | +250 791 920 763<br>📧 info@homnaltd.com<br>🌐 www.homnaltd.com<br>🏢 Showrooms: Kimironko | Remera | Nyabugogo<br><br>Sika Kenya | ACO East Africa | Kingspan Insulation')">
+    <div class="post-image-container">
+        <div class="post-image" style="background-image: url('assets/image/blog2.png')"></div>
     </div>
-  </div>
+    <div class="post-content">
+        <h3 class="post-title">At Homna, Every Applicator Matters</h3>
+        <span class="post-date">March 17, 2024</span>
+    </div>
+</div>
+    </div>
 </section>
 
 
