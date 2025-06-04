@@ -1,122 +1,158 @@
-  // Initialize carousel
-    document.addEventListener('DOMContentLoaded', function () {
-        const carousel = document.querySelector('.carousel');
-        const track = document.querySelector('.carousel-track');
-        const cards = document.querySelectorAll('.product-card');
-        const prevButton = document.querySelector('.prev-button');
-        const nextButton = document.querySelector('.next-button');
-        const dotsContainer = document.querySelector('.carousel-dots');
+document.addEventListener('DOMContentLoaded', function () {
+    const carousel = document.querySelector('.carousel');
+    const track = document.querySelector('.carousel-track');
+    const cards = document.querySelectorAll('.product-card');
+    const prevButton = document.querySelector('.prev-button');
+    const nextButton = document.querySelector('.next-button');
+    const dotsContainer = document.querySelector('.carousel-dots');
 
-        const cardWidth = cards[0].offsetWidth + 30;
-        let currentPosition = 0;
-        let maxPosition = track.scrollWidth - carousel.offsetWidth;
-        let visibleCards = Math.floor(carousel.offsetWidth / cardWidth);
+    const cardWidth = cards[0].offsetWidth + 30;
+    let currentPosition = 0;
+    let maxPosition = track.scrollWidth - carousel.offsetWidth;
+    let visibleCards = Math.floor(carousel.offsetWidth / cardWidth);
 
-        function createDots() {
-            dotsContainer.innerHTML = '';
-            const dotCount = Math.ceil(track.scrollWidth / carousel.offsetWidth);
+    // --- Helper Functions ---
+    function createDots() {
+        dotsContainer.innerHTML = '';
+        const dotCount = Math.ceil(track.scrollWidth / carousel.offsetWidth);
+        for (let i = 0; i < dotCount; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('carousel-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                currentPosition = i * carousel.offsetWidth;
+                track.style.transform = `translateX(-${currentPosition}px)`;
+                updateDots();
+                updateButtons();
+            });
+            dotsContainer.appendChild(dot);
+        }
+    }
 
-            for (let i = 0; i < dotCount; i++) {
-                const dot = document.createElement('div');
-                dot.classList.add('carousel-dot');
-                if (i === 0) dot.classList.add('active');
-                dot.addEventListener('click', () => {
-                    currentPosition = i * carousel.offsetWidth;
-                    track.style.transform = `translateX(-${currentPosition}px)`;
-                    updateDots();
-                    updateButtons();
-                });
-                dotsContainer.appendChild(dot);
+    function updateDots() {
+        const dots = document.querySelectorAll('.carousel-dot');
+        const activeDotIndex = Math.round(currentPosition / carousel.offsetWidth);
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === activeDotIndex);
+        });
+    }
+
+    function updateButtons() {
+        prevButton.disabled = currentPosition === 0;
+        nextButton.disabled = currentPosition >= maxPosition - 10;
+    }
+
+    function moveCarousel(amount) {
+        currentPosition += amount;
+        currentPosition = Math.max(0, Math.min(currentPosition, maxPosition));
+        track.style.transform = `translateX(-${currentPosition}px)`;
+        updateButtons();
+        updateDots();
+    }
+
+    // --- Desktop Drag Support ---
+    let isDragging = false;
+    let startX, startScrollLeft;
+
+    track.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.pageX;
+        startScrollLeft = currentPosition;
+        carousel.style.cursor = 'grabbing';
+        carousel.style.userSelect = 'none';
+    });
+
+    track.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const x = e.pageX;
+        const walk = (x - startX) * 2;
+        currentPosition = startScrollLeft - walk;
+        track.style.transform = `translateX(-${currentPosition}px)`;
+        updateButtons();
+        updateDots();
+    });
+
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+        carousel.style.cursor = 'grab';
+        carousel.style.userSelect = '';
+    });
+
+    // --- Mobile Touch Swipe Support ---
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function handleTouchStart(e) {
+        touchStartX = e.touches[0].clientX;
+    }
+
+    function handleTouchMove(e) {
+        touchEndX = e.touches[0].clientX;
+    }
+
+    function handleTouchEnd() {
+        const diff = touchEndX - touchStartX;
+        const swipeThreshold = 50;
+
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swipe Right -> go to previous
+                moveCarousel(-cardWidth * visibleCards);
+            } else {
+                // Swipe Left -> go to next
+                moveCarousel(cardWidth * visibleCards);
             }
         }
+    }
 
-        function updateDots() {
-            const dots = document.querySelectorAll('.carousel-dot');
-            const activeDotIndex = Math.round(currentPosition / carousel.offsetWidth);
+    // Only add touch events on touch devices
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        track.addEventListener('touchstart', handleTouchStart);
+        track.addEventListener('touchmove', handleTouchMove);
+        track.addEventListener('touchend', handleTouchEnd);
+    }
 
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === activeDotIndex);
-            });
-        }
-
-        function updateButtons() {
-            prevButton.disabled = currentPosition === 0;
-            nextButton.disabled = currentPosition >= maxPosition - 10;
-        }
-
-        function moveCarousel(amount) {
-            currentPosition += amount;
-            currentPosition = Math.max(0, Math.min(currentPosition, maxPosition));
-            track.style.transform = `translateX(-${currentPosition}px)`;
-            updateButtons();
-            updateDots();
-        }
-
-        prevButton.addEventListener('click', () => {
-            moveCarousel(-cardWidth * visibleCards);
-        });
-
-        nextButton.addEventListener('click', () => {
-            moveCarousel(cardWidth * visibleCards);
-        });
-
-        let isDragging = false;
-        let startX, startScrollLeft;
-
-        track.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            startX = e.pageX;
-            startScrollLeft = currentPosition;
-            carousel.style.cursor = 'grabbing';
-            carousel.style.userSelect = 'none';
-        });
-
-        track.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            const x = e.pageX;
-            const walk = (x - startX) * 2;
-            currentPosition = startScrollLeft - walk;
-            track.style.transform = `translateX(-${currentPosition}px)`;
-            updateButtons();
-            updateDots();
-        });
-
-        document.addEventListener('mouseup', () => {
-            isDragging = false;
-            carousel.style.cursor = 'grab';
-            carousel.style.userSelect = '';
-        });
-
-        createDots();
-        updateButtons();
-
-        const productsSection = document.querySelector('.products-section');
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        cards.forEach((card, index) => {
-                            setTimeout(() => {
-                                card.classList.add('animate');
-                            }, index * 100);
-                        });
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: 0.2 }
-        );
-
-        observer.observe(productsSection);
-
-        window.addEventListener('resize', () => {
-            maxPosition = track.scrollWidth - carousel.offsetWidth;
-            visibleCards = Math.floor(carousel.offsetWidth / cardWidth);
-            updateButtons();
-            updateDots();
-        });
+    // --- Button Clicks ---
+    prevButton.addEventListener('click', () => {
+        moveCarousel(-cardWidth * visibleCards);
     });
+
+    nextButton.addEventListener('click', () => {
+        moveCarousel(cardWidth * visibleCards);
+    });
+
+    // --- Animation Observer ---
+    createDots();
+    updateButtons();
+
+    const productsSection = document.querySelector('.products-section');
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    cards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('animate');
+                        }, index * 100);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.2 }
+    );
+
+    observer.observe(productsSection);
+
+    // --- Resize Handling ---
+    window.addEventListener('resize', () => {
+        maxPosition = track.scrollWidth - carousel.offsetWidth;
+        visibleCards = Math.floor(carousel.offsetWidth / cardWidth);
+        updateButtons();
+        updateDots();
+    });
+});
 
     // Projects Popup
     document.addEventListener("DOMContentLoaded", function () {
