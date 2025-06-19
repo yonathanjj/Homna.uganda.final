@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="icon" href="assets/image/Icon.png" type="image/png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Homna</title>
+    <title>{{ get_content('about', 'title', 'About Homna') }}</title>
     <!-- Include GSAP from CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -21,10 +21,10 @@
                 <div class="hero-overlay"></div>
             </div>
             <div class="hero-content">
-                <h1 class="hero-header">FEELS LIKE HOME WITH HOMNA</h1>
+                <h1 class="hero-header">{{ get_content('about', 'hero_header', 'FEELS LIKE HOME WITH HOMNA') }}</h1>
                 <div class="hero-divider"></div>
                 <p class="hero-description">
-                    At Homna Limited, we're more than just a supplier; we're your strategic partner in achieving construction excellence.
+                    {{ get_content('about', 'hero_description', "At Homna Limited, we're more than just a supplier; we're your strategic partner in achieving construction excellence.") }}
                 </p>
             </div>
         </section>
@@ -32,8 +32,8 @@
         <section class="mission-section">
             <div class="mission-container">
                 <div class="mission-statement">
-                    <h2>MISSION</h2>
-                    <p>To deliver high-quality construction materials and services that drive sustainable development across Africa by fostering innovation, maintaining rigorous standards, and building strong partnerships. We aim to enhance the built environment and contribute to the growth and prosperity of the communities we serve.</p>
+                    <h2>{{ get_content('about', 'mission_title', 'MISSION') }}</h2>
+                    <p>{{ get_content('about', 'mission_text', 'To deliver high-quality construction materials and services that drive sustainable development across Africa by fostering innovation, maintaining rigorous standards, and building strong partnerships. We aim to enhance the built environment and contribute to the growth and prosperity of the communities we serve.') }}</p>
                 </div>
             </div>
         </section>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ get_content('cookie', 'title', 'Cookie Policy | Homna Ltd') }}</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f4ff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header, .footer {
+      width: 100%;
+    }
+
+    main {
+      max-width: 850px;
+      margin: 120px auto 80px auto;
+      padding: 30px;
+      background: #fff;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+    }
+
+    h1 {
+      font-size: 2.3rem;
+      margin-bottom: 25px;
+      text-align: center;
+      color: #5d3b95;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+      text-align: justify;
+    }
+
+    strong {
+      color: #7a4bc0;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        margin: 80px 15px;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 1.9rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Dynamic Nav -->
+  <header></header>
+
+  <!-- Main Content -->
+  <main>
+    <h1>{{ get_content('cookie', 'main_heading', 'Cookie Policy') }}</h1>
+    <p>
+      {{ get_content('cookie', 'paragraph1_part1', 'At ') }}<strong>{{ get_content('cookie', 'paragraph1_strong', 'Homna Ltd') }}</strong>{{ get_content('cookie', 'paragraph1_part2', ', we prioritize your privacy and user experience. This Cookie Policy outlines how and why we use cookies when you interact with our website.') }}
+    </p>
+    <p>
+      {{ get_content('cookie', 'paragraph2', 'Cookies are small data files placed on your device that allow us to recognize your browser, improve performance, and remember your preferences for future visits. These help us enhance functionality and analyze user behavior to continuously improve our services.') }}
+    </p>
+    <p>
+      {{ get_content('cookie', 'paragraph3_intro', 'We use two main types of cookies:') }}
+      <ul>
+        <li><strong>{{ get_content('cookie', 'li1_strong', 'Session Cookies:') }}</strong>{{ get_content('cookie', 'li1_text', ' Temporary cookies that expire once you close your browser.') }}</li>
+        <li><strong>{{ get_content('cookie', 'li2_strong', 'Persistent Cookies:') }}</strong>{{ get_content('cookie', 'li2_text', ' Remain on your device for a specified period to help us remember settings and preferences.') }}</li>
+      </ul>
+    </p>
+    <p>
+      {{ get_content('cookie', 'paragraph4', 'By continuing to use our site, you consent to our use of cookies in accordance with this policy. You can adjust your cookie settings at any time via your browser. However, please note that some features of our website may not function properly if cookies are disabled.') }}
+    </p>
+    <p>
+      {{ get_content('cookie', 'paragraph5_part1', 'For more information or if you have any concerns, please contact us at ') }}<strong>{{ get_content('cookie', 'paragraph5_email', 'cookies@homnaltd.com') }}</strong>{{ get_content('cookie', 'paragraph5_part2', '. We\'re happy to assist you and ensure your online experience is safe and transparent.') }}
+    </p>
+  </main>
+
+  <!-- Dynamic Footer -->
+  <footer class="footer"></footer>
+
+  <!-- Component Script -->
+  <script src="assets/js/components.js"></script>
+
+</body>
+</html>
