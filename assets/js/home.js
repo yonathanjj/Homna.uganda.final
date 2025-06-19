@@ -1,223 +1,169 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const carousel = document.querySelector('.carousel');
-    const track = document.querySelector('.carousel-track');
-    const cards = document.querySelectorAll('.product-card');
-    const prevButton = document.querySelector('.prev-button');
-    const nextButton = document.querySelector('.next-button');
-    const dotsContainer = document.querySelector('.carousel-dots');
+  // Trigger animations when the section is in view
+  const solutionsSection = document.querySelector('.solutions-section');
+  const solutionCards = document.querySelectorAll('.solution-card');
 
-    const cardWidth = cards[0].offsetWidth + 30;
-    let currentPosition = 0;
-    let maxPosition = track.scrollWidth - carousel.offsetWidth;
-    let visibleCards = Math.floor(carousel.offsetWidth / cardWidth);
-
-    // --- Helper Functions ---
-    function createDots() {
-        dotsContainer.innerHTML = '';
-        const dotCount = Math.ceil(track.scrollWidth / carousel.offsetWidth);
-        for (let i = 0; i < dotCount; i++) {
-            const dot = document.createElement('div');
-            dot.classList.add('carousel-dot');
-            if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => {
-                currentPosition = i * carousel.offsetWidth;
-                track.style.transform = `translateX(-${currentPosition}px)`;
-                updateDots();
-                updateButtons();
-            });
-            dotsContainer.appendChild(dot);
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          solutionCards.forEach((card, index) => {
+            setTimeout(() => {
+              card.classList.add('animate');
+            }, index * 150);
+          });
+          observer.unobserve(entry.target);
         }
-    }
+      });
+    },
+    { threshold: 0.2 }
+  );
 
-    function updateDots() {
-        const dots = document.querySelectorAll('.carousel-dot');
-        const activeDotIndex = Math.round(currentPosition / carousel.offsetWidth);
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === activeDotIndex);
-        });
-    }
-
-    function updateButtons() {
-        prevButton.disabled = currentPosition === 0;
-        nextButton.disabled = currentPosition >= maxPosition - 10;
-    }
-
-    function moveCarousel(amount) {
-        currentPosition += amount;
-        currentPosition = Math.max(0, Math.min(currentPosition, maxPosition));
-        track.style.transform = `translateX(-${currentPosition}px)`;
-        updateButtons();
-        updateDots();
-    }
-
-    // --- Desktop Drag Support ---
-    let isDragging = false;
-    let startX, startScrollLeft;
-
-    track.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        startX = e.pageX;
-        startScrollLeft = currentPosition;
-        carousel.style.cursor = 'grabbing';
-        carousel.style.userSelect = 'none';
-    });
-
-    track.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        const x = e.pageX;
-        const walk = (x - startX) * 2;
-        currentPosition = startScrollLeft - walk;
-        track.style.transform = `translateX(-${currentPosition}px)`;
-        updateButtons();
-        updateDots();
-    });
-
-    document.addEventListener('mouseup', () => {
-        isDragging = false;
-        carousel.style.cursor = 'grab';
-        carousel.style.userSelect = '';
-    });
-
-    // --- Mobile Touch Swipe Support ---
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    function handleTouchStart(e) {
-        touchStartX = e.touches[0].clientX;
-    }
-
-    function handleTouchMove(e) {
-        touchEndX = e.touches[0].clientX;
-    }
-
-    function handleTouchEnd() {
-        const diff = touchEndX - touchStartX;
-        const swipeThreshold = 50;
-
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) {
-                // Swipe Right -> go to previous
-                moveCarousel(-cardWidth * visibleCards);
-            } else {
-                // Swipe Left -> go to next
-                moveCarousel(cardWidth * visibleCards);
-            }
-        }
-    }
-
-    // Only add touch events on touch devices
-    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-        track.addEventListener('touchstart', handleTouchStart);
-        track.addEventListener('touchmove', handleTouchMove);
-        track.addEventListener('touchend', handleTouchEnd);
-    }
-
-    // --- Button Clicks ---
-    prevButton.addEventListener('click', () => {
-        moveCarousel(-cardWidth * visibleCards);
-    });
-
-    nextButton.addEventListener('click', () => {
-        moveCarousel(cardWidth * visibleCards);
-    });
-
-    // --- Animation Observer ---
-    createDots();
-    updateButtons();
-
-    const productsSection = document.querySelector('.products-section');
-
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    cards.forEach((card, index) => {
-                        setTimeout(() => {
-                            card.classList.add('animate');
-                        }, index * 100);
-                    });
-                    observer.unobserve(entry.target);
-                }
-            });
-        },
-        { threshold: 0.2 }
-    );
-
-    observer.observe(productsSection);
-
-    // --- Resize Handling ---
-    window.addEventListener('resize', () => {
-        maxPosition = track.scrollWidth - carousel.offsetWidth;
-        visibleCards = Math.floor(carousel.offsetWidth / cardWidth);
-        updateButtons();
-        updateDots();
-    });
+  observer.observe(solutionsSection);
 });
 
-    // Projects Popup
-    document.addEventListener("DOMContentLoaded", function () {
-        const projects = document.querySelectorAll(".project-card");
-        const popup = document.getElementById("projects-popup");
-        const popupTitle = document.querySelector(".popup-title");
-        const popupGallery = document.querySelector(".popup-gallery");
+// Map home page solutions to their respective partners
+const solutionPartnerMap = {
+  'construction-chemicals': 'sika',
+  'drainage-systems': 'aco',
+  'thermal-insulation': 'kingspan'
+};
 
-        function openProjectsPopup(title, galleryImages) {
-            popupTitle.textContent = title;
-            popupGallery.innerHTML = "";
+function openSolutionPopup(solutionId) {
+    // Store the partner ID in localStorage to open the correct popup on solutions page
+    const partnerId = solutionPartnerMap[solutionId];
+    if (partnerId) {
+        localStorage.setItem('selectedPartner', partnerId);
+        // Navigate to solutions page
+        window.location.href = 'solutions.html';
+    }
+}
 
-            galleryImages.forEach((image) => {
-                const imgDiv = document.createElement("div");
-                imgDiv.classList.add("popup-image");
-                imgDiv.style.backgroundImage = `url('${image}')`;
-                imgDiv.addEventListener("click", () => openLightbox(image));
-                popupGallery.appendChild(imgDiv);
-            });
+   document.addEventListener("DOMContentLoaded", function() {
+    const projects = document.querySelectorAll(".project-card");
+    const popup = document.getElementById("projects-popup");
+    const popupTitle = document.querySelector(".popup-title");
+    const popupGallery = document.querySelector(".popup-gallery");
+    const closeBtn = document.querySelector(".close-btn");
 
-            popup.style.display = "flex";
-        }
+    let currentGallery = [];
+    let currentIndex = 0;
 
-        function openLightbox(imageSrc) {
-            const lightbox = document.createElement("div");
-            lightbox.classList.add("lightbox");
+    function openProjectsPopup(title, galleryImages) {
+        popupTitle.textContent = title;
+        popupGallery.innerHTML = "";
+        currentGallery = galleryImages;
 
-            const lightboxImage = document.createElement("img");
-            lightboxImage.src = imageSrc;
-            lightboxImage.classList.add("lightbox-image");
-
-            const closeLightboxBtn = document.createElement("span");
-            closeLightboxBtn.classList.add("close-lightbox-btn");
-            closeLightboxBtn.innerHTML = "&times;";
-            closeLightboxBtn.addEventListener("click", () => closeLightbox(lightbox));
-
-            lightbox.appendChild(lightboxImage);
-            lightbox.appendChild(closeLightboxBtn);
-            document.body.appendChild(lightbox);
-        }
-
-        function closeLightbox(lightbox) {
-            lightbox.remove();
-        }
-
-        projects.forEach((project) => {
-            project.addEventListener("click", function () {
-                const projectTitle = project.getAttribute("data-title");
-                const galleryImages = JSON.parse(project.getAttribute("data-gallery"));
-                openProjectsPopup(projectTitle, galleryImages);
-            });
+        galleryImages.forEach((image, index) => {
+            const imgDiv = document.createElement("div");
+            imgDiv.classList.add("popup-image");
+            imgDiv.style.backgroundImage = `url('${image}')`;
+            imgDiv.addEventListener("click", () => openLightbox(index));
+            popupGallery.appendChild(imgDiv);
         });
 
-        function closeProjectsPopup() {
-            popup.style.display = "none";
-        }
+        popup.style.display = "flex";
+        document.body.style.overflow = "hidden";
+    }
 
-        popup.addEventListener("click", function (event) {
-            if (event.target === popup) {
-                closeProjectsPopup();
+    function openLightbox(index) {
+        currentIndex = index;
+        const lightbox = document.createElement("div");
+        lightbox.classList.add("lightbox");
+
+        const lightboxContent = document.createElement("div");
+        lightboxContent.classList.add("lightbox-content");
+
+        const lightboxImage = document.createElement("img");
+        lightboxImage.src = currentGallery[currentIndex];
+        lightboxImage.classList.add("lightbox-image");
+        lightboxImage.alt = "Project Image";
+
+        const closeLightboxBtn = document.createElement("span");
+        closeLightboxBtn.classList.add("close-lightbox-btn");
+        closeLightboxBtn.innerHTML = "&times;";
+        closeLightboxBtn.addEventListener("click", () => closeLightbox(lightbox));
+
+        // Create navigation container
+        const navContainer = document.createElement("div");
+        navContainer.classList.add("lightbox-nav");
+
+        // Previous button
+        const prevBtn = document.createElement("button");
+        prevBtn.classList.add("lightbox-nav-btn", "prev");
+        prevBtn.innerHTML = "&larr;";
+        prevBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            navigate(-1);
+        });
+
+        // Next button
+        const nextBtn = document.createElement("button");
+        nextBtn.classList.add("lightbox-nav-btn", "next");
+        nextBtn.innerHTML = "&rarr;";
+        nextBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            navigate(1);
+        });
+
+        navContainer.appendChild(prevBtn);
+        navContainer.appendChild(nextBtn);
+        lightboxContent.appendChild(lightboxImage);
+        lightboxContent.appendChild(closeLightboxBtn);
+        lightboxContent.appendChild(navContainer);
+        lightbox.appendChild(lightboxContent);
+        document.body.appendChild(lightbox);
+
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener("click", (e) => {
+            if (e.target === lightbox) {
+                closeLightbox(lightbox);
             }
         });
 
-        window.closeProjectsPopup = closeProjectsPopup;
+        // Keyboard navigation
+        document.addEventListener("keydown", function handleKeyDown(e) {
+            if (e.key === "Escape") {
+                closeLightbox(lightbox);
+                document.removeEventListener("keydown", handleKeyDown);
+            } else if (e.key === "ArrowLeft") {
+                navigate(-1);
+            } else if (e.key === "ArrowRight") {
+                navigate(1);
+            }
+        });
+
+        function navigate(direction) {
+            currentIndex = (currentIndex + direction + currentGallery.length) % currentGallery.length;
+            lightboxImage.src = currentGallery[currentIndex];
+        }
+    }
+
+    function closeLightbox(lightbox) {
+        lightbox.remove();
+        document.body.style.overflow = "auto";
+    }
+
+    projects.forEach((project) => {
+        project.addEventListener("click", function() {
+            const projectTitle = project.querySelector(".project-title").textContent;
+            const galleryImages = JSON.parse(project.getAttribute("data-gallery"));
+            openProjectsPopup(projectTitle, galleryImages);
+        });
     });
+
+    closeBtn.addEventListener("click", function() {
+        popup.style.display = "none";
+        document.body.style.overflow = "auto";
+    });
+
+    popup.addEventListener("click", function(event) {
+        if (event.target === popup) {
+            popup.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    });
+});
 
     // JavaScript (Same as before with small adjustments)
 function openPopup(cardElement) {
