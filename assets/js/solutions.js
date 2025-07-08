@@ -1,6 +1,6 @@
 const partnersData = {
     sika: {
-    name: "Sika",
+    name: "Sika Construction Chemicals",
     description: "World leader in construction chemicals and industrial manufacturing.",
     logo: "https://www.sika.com/content/dam/dms/sika/images-3/logo/sika-logo.png",
     solutions: {
@@ -1855,7 +1855,7 @@ sealingAndBonding: {
 }
 },
     kingspan: {
-    name: "Kingspan",
+    name: "Kingspan Thermal Insulation",
     description: "Global leader in high-performance insulation and building envelope solutions.",
     logo: "assets/image/king.png",
     solutions: {
@@ -2158,7 +2158,7 @@ sealingAndBonding: {
     }
 },
     aco: {
-        name: "ACO",
+        name: "ACO Drainage Systems",
         description: "Specialists in drainage and water management solutions.",
         logo: "https://www.aco.com/fileadmin/template/images/aco-logo.svg",
         solutions: {

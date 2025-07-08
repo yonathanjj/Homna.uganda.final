@@ -14,9 +14,9 @@ body {
     overflow-x:hidden;
 }
 
-/* Add this container class to your HTML */
+/* Contact Page Styles */
 .contact-page-container {
-    background: #f8f4ff; /* Your light purple */;
+    background: #f8f4ff; /* Light purple */
     padding: 40px 0;
     font-family: 'Montserrat', sans-serif;
 }
@@ -29,15 +29,15 @@ body {
 
 .contact-page-container section {
     width: 90%;
-    margin: 0 auto 80px;
+    margin: 4rem auto 80px;
     padding: 40px 0;
-    margin-top: 4rem;
 }
 
 .contact-page-container h2 {
     font-size: 4rem;
     margin-bottom: 30px;
     text-align: left;
+    color: #BE0606; /* Red accent */
 }
 
 .contact-page-container .subtext {
@@ -56,21 +56,21 @@ body {
 
 .contact-page-container .left-content {
     flex: 1;
-    line-height: 1.2;
     font-size: 1rem;
+    line-height: 1.2;
 }
-
-.contact-page-container .divider {
-    height: 2px;
-    background: black;
-    margin: 30px 0;
-}
-
 
 .contact-page-container .right-content {
     flex: 2;
     display: flex;
     flex-direction: column;
+}
+
+/* Updated Divider - Dimmed Darker Gray */
+.contact-page-container .divider {
+    height: 2px;
+    background-color: #555555;
+    margin: 30px 0;
 }
 
 /* Social Media Links */
@@ -95,7 +95,7 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: #BE0606;
+    background: #BE0606; /* Red accent */
     transition: width 0.3s;
 }
 
@@ -113,9 +113,10 @@ body {
 }
 
 .contact-page-container .email-link:hover {
-    color: #BE0606;
+    color: #BE0606; /* Red accent */
 }
 
+/* Map Section */
 .contact-page-container .map-container {
     display: flex;
     flex-wrap: wrap;
@@ -131,6 +132,7 @@ body {
 .contact-page-container .map-item h3 {
     font-size: 1.4rem;
     margin-bottom: 15px;
+    color: #BE0606; /* Red accent */
 }
 
 .contact-page-container .shop-image {
@@ -147,7 +149,7 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Updated Contact Form Width */
+/* Contact Form */
 .contact-page-container .contact-form {
     width: 90%;
     margin: 0 auto;
@@ -157,9 +159,14 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* Responsive Styles */
 @media (max-width: 768px) {
     .contact-page-container .map-container {
         flex-direction: column;
+    }
+
+    .contact-page-container .map-item {
+        width: 100%;
     }
 
     .contact-page-container .google-map iframe {
@@ -168,10 +175,6 @@ body {
 
     .contact-page-container .shop-image {
         height: 200px;
-    }
-
-    .contact-page-container .map-item {
-        width: 100%;
     }
 
     .contact-page-container .contact-form {
@@ -189,16 +192,48 @@ body {
     }
 }
 
+/* Phone Number Styling */
+.contact-page-container .map-item p {
+    margin: 0 0 15px 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.contact-page-container .map-item p a {
+    color: #BE0606; /* Red accent */
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+    padding: 4px 6px;
+    border-radius: 4px;
+}
+
+.contact-page-container .map-item p a:hover {
+    color: #9E0505;
+    background: #FFEEEE;
+    text-decoration: underline;
+}
+
+/* Optional: Add this if you want clickable phone numbers to stand out more on mobile */
+@media (max-width: 768px) {
+    .contact-page-container .map-item p a {
+        display: inline-block;
+        padding: 6px 8px;
+    }
+}
+
 /* Contact Form */
 .contact-page-container .contact-form {
     background: #fff;
+    font-family: 'Montserrat', sans-serif;
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     margin: 0 auto;
-    margin-top:5rem;
+    margin-top: 5rem;
 }
 
+/* Form Categories (e.g., radio/checkbox label buttons) */
 .contact-page-container .form-categories {
     display: flex;
     flex-wrap: wrap;
@@ -212,26 +247,31 @@ body {
     align-items: center;
     gap: 8px;
     padding: 12px 25px;
-    background: #BE0606;
+    background: #BE0606; /* Red accent */
     border-radius: 25px;
     transition: all 0.3s;
     cursor: pointer;
     user-select: none;
     color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
 }
 
 .contact-page-container .form-categories label:hover {
-    background: #eee;
+    background: #9E0505;
     transform: translateY(-2px);
-    color: black;
+    color: white;
 }
 
+/* Form Grid for layout */
 .contact-page-container .form-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
 }
 
+/* Form Group - labels and inputs */
 .contact-page-container .form-group {
     display: flex;
     flex-direction: column;
@@ -241,8 +281,11 @@ body {
 .contact-page-container .form-group label {
     font-weight: 500;
     color: #444;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
 }
 
+/* Inputs, selects, textareas */
 .contact-page-container .form-group input,
 .contact-page-container .form-group select,
 .contact-page-container .form-group textarea {
@@ -250,40 +293,58 @@ body {
     border: 2px solid #eee;
     border-radius: 8px;
     font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: #222;
     transition: all 0.3s;
+    appearance: none;  /* for consistent dropdown arrow styling across browsers */
+    background-color: white;
 }
 
+/* Make options inside select inherit font as well */
+.contact-page-container .form-group select option {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #222;
+}
+
+/* Focus styles */
 .contact-page-container .form-group input:focus,
 .contact-page-container .form-group select:focus,
 .contact-page-container .form-group textarea:focus {
-    border-color: #999;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-color: #BE0606; /* Red accent */
+    box-shadow: 0 2px 8px rgba(190, 6, 6, 0.1);
+    outline: none;
 }
 
+/* Full width for larger elements */
 .contact-page-container .form-group.full-width {
     grid-column: 1 / -1;
 }
 
+/* Submit button */
 .contact-page-container button[type="submit"] {
     display: block;
     margin: 30px auto 0;
     width: 200px;
     background: transparent;
-    color: #BE0606;
+    color: #BE0606; /* Red accent */
     padding: 16px;
-    border: 2px solid #BE0606;
+    border: 2px solid #BE0606; /* Red accent */
     border-radius: 35px;
     cursor: pointer;
     font-weight: 600;
     font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
     transition: all 0.3s;
 }
 
 .contact-page-container button[type="submit"]:hover {
-    background: #BE0606;
+    background: #BE0606; /* Red accent */
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(190, 6, 6, 0.15);
 }
 
 /* FAQ Section */
@@ -304,9 +365,9 @@ body {
     left: 0;
     width: 100%;
     height: 2px;
-    background: black;
+    background-color: #555555;
+    box-shadow: none;
 }
-
 
 .contact-page-container .faq-item summary {
     font-weight: 600;
@@ -314,6 +375,8 @@ body {
     padding: 15px 0;
     list-style: none;
     position: relative;
+    font-family: 'Montserrat', sans-serif;
+    color: #BE0606; /* Red accent */
 }
 
 .contact-page-container .faq-item summary::after {
@@ -322,6 +385,7 @@ body {
     right: 0;
     font-size: 1.4em;
     transition: transform 0.3s;
+    color: #BE0606; /* Red accent */
 }
 
 .contact-page-container .faq-item[open] summary::after {
@@ -332,6 +396,7 @@ body {
     padding: 15px 0;
     line-height: 1.6;
     color: #666;
+    font-family: 'Montserrat', sans-serif;
 }
 
 @media (max-width: 768px) {
@@ -353,5 +418,33 @@ body {
 
     .contact-page-container h2 {
         font-size: 2rem;
+        font-family: 'Montserrat', sans-serif;
     }
+}
+
+.phone-numbers {
+    text-align: left;
+    margin: 2rem 0;
+    font-family: Arial, sans-serif;
+}
+
+.phone-numbers h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #BE0606; /* Red accent */
+}
+
+.phone-numbers p {
+    font-size: 1rem;
+    margin: 0.3rem 0;
+}
+
+.phone-numbers a {
+    color: #BE0606; /* Red accent */
+    text-decoration: none;
+}
+
+.phone-numbers a:hover {
+    text-decoration: underline;
+    color: #9E0505;
 }
