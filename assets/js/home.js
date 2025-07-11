@@ -40,20 +40,26 @@ function openSolutionPopup(solutionId) {
 }
 
    document.addEventListener("DOMContentLoaded", function() {
+    // --- SETUP ---
     const projects = document.querySelectorAll(".project-card");
     const popup = document.getElementById("projects-popup");
     const popupTitle = document.querySelector(".popup-title");
     const popupGallery = document.querySelector(".popup-gallery");
     const closeBtn = document.querySelector(".close-btn");
+    const body = document.body;
+    const popupOverlay = document.querySelector(".popup-overlay");
 
     let currentGallery = [];
     let currentIndex = 0;
+    let keydownHandler;
 
+    // --- MAIN POPUP FUNCTIONS ---
     function openProjectsPopup(title, galleryImages) {
         popupTitle.textContent = title;
         popupGallery.innerHTML = "";
         currentGallery = galleryImages;
 
+        // Populate the gallery with new images
         galleryImages.forEach((image, index) => {
             const imgDiv = document.createElement("div");
             imgDiv.classList.add("popup-image");
@@ -63,9 +69,18 @@ function openSolutionPopup(solutionId) {
         });
 
         popup.style.display = "flex";
-        document.body.style.overflow = "hidden";
+        body.classList.add('popup-open');
+
+        // Scroll to top of popup content
+        document.querySelector('.popup-content').scrollTop = 0;
     }
 
+    function closeProjectsPopup() {
+        popup.style.display = "none";
+        body.classList.remove('popup-open');
+    }
+
+    // --- LIGHTBOX FUNCTIONS ---
     function openLightbox(index) {
         currentIndex = index;
         const lightbox = document.createElement("div");
@@ -79,28 +94,25 @@ function openSolutionPopup(solutionId) {
         lightboxImage.classList.add("lightbox-image");
         lightboxImage.alt = "Project Image";
 
-        const closeLightboxBtn = document.createElement("span");
+        const closeLightboxBtn = document.createElement("button");
         closeLightboxBtn.classList.add("close-lightbox-btn");
-        closeLightboxBtn.innerHTML = "&times;";
+        closeLightboxBtn.innerHTML = "×";
         closeLightboxBtn.addEventListener("click", () => closeLightbox(lightbox));
 
-        // Create navigation container
         const navContainer = document.createElement("div");
         navContainer.classList.add("lightbox-nav");
 
-        // Previous button
         const prevBtn = document.createElement("button");
         prevBtn.classList.add("lightbox-nav-btn", "prev");
-        prevBtn.innerHTML = "&larr;";
+        prevBtn.innerHTML = "←";
         prevBtn.addEventListener("click", (e) => {
             e.stopPropagation();
             navigate(-1);
         });
 
-        // Next button
         const nextBtn = document.createElement("button");
         nextBtn.classList.add("lightbox-nav-btn", "next");
-        nextBtn.innerHTML = "&rarr;";
+        nextBtn.innerHTML = "→";
         nextBtn.addEventListener("click", (e) => {
             e.stopPropagation();
             navigate(1);
@@ -114,24 +126,22 @@ function openSolutionPopup(solutionId) {
         lightbox.appendChild(lightboxContent);
         document.body.appendChild(lightbox);
 
-        // Close lightbox when clicking outside the image
         lightbox.addEventListener("click", (e) => {
             if (e.target === lightbox) {
                 closeLightbox(lightbox);
             }
         });
 
-        // Keyboard navigation
-        document.addEventListener("keydown", function handleKeyDown(e) {
+        keydownHandler = function(e) {
             if (e.key === "Escape") {
                 closeLightbox(lightbox);
-                document.removeEventListener("keydown", handleKeyDown);
             } else if (e.key === "ArrowLeft") {
                 navigate(-1);
             } else if (e.key === "ArrowRight") {
                 navigate(1);
             }
-        });
+        };
+        document.addEventListener("keydown", keydownHandler);
 
         function navigate(direction) {
             currentIndex = (currentIndex + direction + currentGallery.length) % currentGallery.length;
@@ -140,10 +150,11 @@ function openSolutionPopup(solutionId) {
     }
 
     function closeLightbox(lightbox) {
+        document.removeEventListener("keydown", keydownHandler);
         lightbox.remove();
-        document.body.style.overflow = "auto";
     }
 
+    // --- EVENT LISTENERS ---
     projects.forEach((project) => {
         project.addEventListener("click", function() {
             const projectTitle = project.querySelector(".project-title").textContent;
@@ -152,15 +163,13 @@ function openSolutionPopup(solutionId) {
         });
     });
 
-    closeBtn.addEventListener("click", function() {
-        popup.style.display = "none";
-        document.body.style.overflow = "auto";
-    });
+    closeBtn.addEventListener("click", closeProjectsPopup);
+    popupOverlay.addEventListener("click", closeProjectsPopup);
 
-    popup.addEventListener("click", function(event) {
-        if (event.target === popup) {
-            popup.style.display = "none";
-            document.body.style.overflow = "auto";
+    // Close popup with Escape key
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape" && popup.style.display === "flex") {
+            closeProjectsPopup();
         }
     });
 });

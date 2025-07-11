@@ -234,58 +234,63 @@
 
     <!-- Projects Popup -->
     <div id="projects-popup" class="projects-popup">
+        <div class="popup-overlay"></div>
         <div class="popup-content">
-            <span class="close-btn">&times;</span>
+            <span class="close-btn">×</span>
             <h2 class="popup-title">Project Details</h2>
             <p class="popup-description">
                 Explore this project in detail. Click the images below for a closer look.
             </p>
-            <div class="popup-gallery">
-                <!-- Images will be inserted dynamically -->
+            <div class="popup-gallery-container">
+                <div class="popup-gallery">
+                    <!-- Images will be inserted dynamically -->
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 
-<section class="our-partners">
-  <h2 class="partners-header">Partners</h2>
-  <div class="partners-container">
-    <div class="partner">
-      <a href="https://www.sika.com" target="_blank">
-        <img src="assets/image/sika.png" alt="Sika" class="partner-logo">
+<section class="partners-final">
+  <div class="partners-final__container">
+    <h2 class="partners-final__heading">Our Trusted Partners</h2>
+
+    <div class="partners-final__logos">
+      <!-- Sika logo with specific size class -->
+      <a href="https://www.sika.com" target="_blank" class="partners-final__logo-link partners-final__logo-link--sika">
+        <img src="assets/image/sika.png" alt="Sika" class="partners-final__logo">
       </a>
-    </div>
-    <div class="partner">
-      <a href="https://www.aco.com" target="_blank">
-        <img src="assets/image/aco.png" alt="ACO" class="partner-logo">
+
+      <a href="https://www.aco.com" target="_blank" class="partners-final__logo-link">
+        <img src="assets/image/aco.png" alt="ACO" class="partners-final__logo">
       </a>
-    </div>
-    <div class="partner">
-      <a href="https://www.kingspan.com/gb/en/business-groups/kingspan-insulation/" target="_blank">
-        <img src="assets/image/king.png" alt="Kingspan" class="partner-logo">
+
+      <a href="https://www.kingspan.com" target="_blank" class="partners-final__logo-link">
+        <img src="assets/image/king.png" alt="Kingspan" class="partners-final__logo">
       </a>
     </div>
   </div>
 </section>
 
 
-<!-- News Section (Original Styling) -->
+<!-- News Section (Corrected) -->
 <section class="latest-news">
     <div class="section-container">
         <div class="section-header">
             <h2 class="section-title">Latest News & Insights</h2>
             <div class="section-divider"></div>
-            <p class="section-subtitle">We explore some of the biggest questions facing the built and natural environments.</p>
         </div>
 
         <div class="news-cards-container">
             <div class="news-cards">
                 <!-- Card 1 -->
                 <div class="news-card" onclick="openPopup(this)">
-                    <div class="news-date">March 18, 2025</div>
-                    <h3 class="news-title">Exciting News About Our Latest Project</h3>
-                    <p class="news-excerpt">Get the latest update on our most exciting project yet!</p>
+                    <!-- Add this wrapper div -->
+                    <div class="news-header">
+                        <div class="news-date">March 18, 2025</div>
+                        <h3 class="news-title">Exciting News About Our Latest Project</h3>
+                        <p class="news-excerpt">Get the latest update on our most exciting project yet!</p>
+                    </div>
                     <div class="news-image">
                         <img src="assets/image/1.jpeg" alt="News Image">
                     </div>
@@ -293,9 +298,12 @@
 
                 <!-- Card 2 -->
                 <div class="news-card" onclick="openPopup(this)">
-                    <div class="news-date">March 12, 2025</div>
-                    <h3 class="news-title">A New Collaboration Announcement</h3>
-                    <p class="news-excerpt">We're teaming up with amazing partners! Learn more.</p>
+                    <!-- Add this wrapper div -->
+                    <div class="news-header">
+                        <div class="news-date">March 12, 2025</div>
+                        <h3 class="news-title">A New Collaboration Announcement</h3>
+                        <p class="news-excerpt">We're teaming up with amazing partners! Learn more.</p>
+                    </div>
                     <div class="news-image">
                         <img src="assets/image/blog2.png" alt="News Image">
                     </div>
@@ -303,9 +311,12 @@
 
                 <!-- Card 3 -->
                 <div class="news-card" onclick="openPopup(this)">
-                    <div class="news-date">March 5, 2025</div>
-                    <h3 class="news-title">Behind The Scenes of Our Latest Work</h3>
-                    <p class="news-excerpt">An exclusive peek into our creative process.</p>
+                    <!-- Add this wrapper div -->
+                    <div class="news-header">
+                        <div class="news-date">March 5, 2025</div>
+                        <h3 class="news-title">Behind The Scenes of Our Latest Work</h3>
+                        <p class="news-excerpt">An exclusive peek into our creative process.</p>
+                    </div>
                     <div class="news-image">
                         <img src="assets/image/blog3.png" alt="News Image">
                     </div>
