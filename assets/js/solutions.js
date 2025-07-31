@@ -3874,7 +3874,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function showQuoteForm(partner, product) {
+ function showQuoteForm(partner, product) {
   productModal.style.display = 'none';
   quoteModal.style.display = 'block';
 
@@ -3884,7 +3884,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <h3>Get Quote</h3>
       <p>Tell us about your ${product.name} needs</p>
 
-      <form id="quote-request-form" action="https://formspree.io/f/xyzwavdr" method="POST">
+      <form id="quote-request-form">
         <input type="hidden" name="product" value="${product.name}">
         <input type="hidden" name="partner" value="${partner.name}">
 
@@ -3915,6 +3915,26 @@ document.addEventListener('DOMContentLoaded', function() {
     closeAllModals();
     productModal.style.display = 'block';
   });
+
+  // EmailJS submit handler
+  const quoteForm = quoteModal.querySelector('#quote-request-form');
+  quoteForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    emailjs.send("service_idcwmqi", "template_dr73cow", {  // <-- Updated template ID here
+      partner: this.partner.value,
+      product: this.product.value,
+      email: this.email.value,
+      requirements: this.requirements.value
+    }).then(function(response) {
+      alert("✅ Quote request sent successfully!");
+      closeAllModals();
+      productModal.style.display = 'block';
+    }, function(error) {
+      alert("❌ Failed to send quote request: " + JSON.stringify(error));
+    });
+  });
+
 
     }
 });
